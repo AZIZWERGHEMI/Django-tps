@@ -1,0 +1,27 @@
+{% extends 'blog/basee.html' %}
+
+{% block title %}
+    <title>Détail du Poste</title>
+{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        background-color: orange; /* Couleur de fond gris clair */
+    }
+</style>
+    <h1>{{ object.title }}</h1>
+    <p>{{ user.username }},</p>
+
+    <p>{{ object.content }}</p>
+    <p>Statut: {{ object.get_status_display }}</p>
+    <p>Date de création: {{ object.created_on }}</p>
+    {% if object.image %}
+        <img src="{{ object.image.url }}" alt="{{ object.title }}" class="post-image">
+    {% endif %}
+
+    <div class="mt-3">
+        <a href="{% url 'modifier_poste' pk=object.pk %}" class="btn btn-primary mr-2 float-left">Modifier</a>
+        <a href="{% url 'supprimer_poste' pk=object.pk %}" class="btn btn-danger">Supprimer</a>
+    </div>
+{% endblock %}

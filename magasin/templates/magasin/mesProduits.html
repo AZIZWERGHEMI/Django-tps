@@ -1,0 +1,30 @@
+{% extends 'magasin/base.html' %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>{% block title %} Home {% endblock title %}</title>
+    {% block content %} {% block styles %} {%endblock %}
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div id="products" class="products">
+          {% for product in produit %}
+          <div class="product">
+            <div id="{{product.id}}">
+              <img src="/media/{{ product.img }}" alt="{{ product.img }}" />
+              <div>
+                <p>{{product.libelle}}</p>
+                <p><b>{{product.description}}</b></p>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    {% endblock %} {% load static %}
+  </body>
+</html>

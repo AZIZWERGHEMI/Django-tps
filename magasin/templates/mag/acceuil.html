@@ -1,0 +1,110 @@
+<!DOCTYPE html">
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <title>Création d'un design étape par étape - Etape n°1 : Le code xhtml</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- CSS personnalisé -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+
+        #conteneur {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        #header {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        #header a {
+            text-decoration: none;
+            color: #343a40;
+            font-size: 24px;
+        }
+
+        #menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+            background-color: #007bff;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        #menu li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        #menu li:last-child {
+            margin-right: 0;
+        }
+
+        #menu li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        #contenu {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div id="conteneur">
+        <h1 id="header">
+          <a href="#" title="Colored Design">hello<br>voici les applications<span> </span></a>
+        </h1>
+        <nav>
+            <ul id="menu">
+                <li><a href="{% url 'index' %}">Application n°1 : Magasin</a></li>
+                <li><a href="blog/liste">Application n°2 : Blog</a></li> <!-- Ajout du lien vers l'application Blog -->
+                <li><a href="#">Application n°3</a></li>
+            </ul>
+        </nav>
+        <div id="contenu">
+          <h2>Django</h2>
+          <ul>
+              <li>Étape 1 : Installation de Django</li>
+              <li>Étape 2 : Création d'un projet Django</li>
+              <li>Étape 3 : Création d'une application</li>
+              <li>Étape 4 : Configuration de la base de données</li>
+              <li>Étape 5 : Développement de l'application</li>
+              <li>Étape 6 : Configuration des URLs</li>
+              <li>Étape 7 : Création d'interfaces administratives</li>
+              <li>Étape 8 : Débogage et tests</li>
+              <li>Étape 9 : Déploiement</li>
+              <li>Étape 10 : Maintenance et mise à jour</li>
+              <li>Étape 11 : Gestion des utilisateurs et authentification</li>
+              <li>Étape 12 : Sécurité</li>
+              <li>Étape 13 : Gestion des fichiers statiques et médias</li>
+          </ul>
+      </div>
+      
+        <p id="footer">Base de Page de Votre Site Web Django</p>
+    </div>
+
+    <!-- Bootstrap JS (optional) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

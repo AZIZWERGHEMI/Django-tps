@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <!-- Bootstrap CSS -->
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- CSS personnalisé -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #fafafd;
+            font-family: "poppins";
+          }
+          
+          body {
+            width: 100%;
+            margin: 0; /* Réinitialise la marge */
+            padding: 0; /* Réinitialise le rembourrage */
+            font-family: "poppins";
+          }
+          
+          h1 {
+            margin-bottom: 20px;
+          }
+          
+
+          
+          ul {
+            background-color: #eee;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin: 20px auto;
+            list-style: none;
+            border-radius: 20px;
+            width: 80%;
+            height: 50px;
+          }
+          ul,
+          td * {
+            background-color: transparent;
+          }
+          
+          td {
+            height: 300px;
+            padding: 20px;
+          }
+          
+          ul a {
+            text-decoration: none;
+            color: #000;
+            padding:;
+            border-radius: 20px;
+          }
+          
+          ul a:hover {
+            background-color: #4c18c7;
+            color: #fff;
+          }
+          
+          .container {
+            overflow: scroll;
+            border: #000000 1px solid;
+            border-radius: 20px;
+            width: 90%;
+            margin: 20px auto 0; /* Ajuste la marge supérieure pour placer le conteneur en haut de la page */
+            overflow-y: hidden;
+          }
+          
+          .container::-webkit-scrollbar {
+            width: 1px;
+          }
+          .container::-webkit-scrollbar-thumb {
+            background: #000;
+            border-radius: 20px;
+            padding: 2px;
+          }
+          
+          h6 {
+            margin-top: 20px;
+            text-transform: capitalize;
+          }
+          p {
+            font-size: 15px;
+          }
+          
+          td {
+            background-color: rgb(76, 24, 199, 0.5);
+          }
+          
+          .title {
+            transform: translateX(-180px);
+            cursor: pointer;
+          }
+          
+          .post-form,
+          .pdt {
+            width: 50%;
+            margin: auto;
+          }
+          
+          label {
+            width: 100px;
+          }
+          
+          .post-form p {
+            display: flex;
+            font-size: 15px;
+            margin-top: 10px;
+            justify-content: space-between;
+          }
+          
+          .post-form input,
+          select {
+            width: 200px;
+          }
+          
+          .post-form button {
+            width: 200px;
+            height: 30px;
+            background-color: #4c18c7;
+            color: #fff;
+            border: 0;
+            outline: 0;
+            border-radius: 20px;
+            cursor: pointer;
+            margin: 20px auto; /* Modifier la marge pour centrer le bouton */
+
+          }
+          
+          .post-form textarea {
+            height: 100px;
+            width: 200px;
+            resize: none;
+          }
+          
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">Blog</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">{{ user.username }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <form method="post" action="{% url 'logout' %}">
+                                {% csrf_token %}
+                                <button class="btn btn-link nav-link" type="submit">Déconnexion</button>
+                            </form>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'login' %}">Connexion</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'register' %}">Inscription</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <!-- Bootstrap JS (optional) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

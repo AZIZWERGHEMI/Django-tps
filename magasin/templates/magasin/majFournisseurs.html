@@ -1,0 +1,22 @@
+{% extends 'magasin/base.html' %}
+{% block title %}Ajouter fournisseur{% endblock %}
+{% block content %}
+<div class="col-md-12 text-center">
+    <h2><b>- Ajouter Fournisseur -</b></h2>
+</div>
+<form method="POST" class="post-form">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class="btn btn-success">Enregistrer fournisseur</button>
+</form>
+<center><h2><b>- liste de fournisseurs -</b></h2></center>
+
+{% for fournisseur in fournisseurs %}
+<hr>
+    <p><b>nom fournisseur: </b>{{ fournisseur.nom }}</p>
+    <p><b>adresse fournisseur: </b>{{ fournisseur.adresse }}</p>
+    <p><b>email fournisseur: </b>{{ fournisseur.email }}</p>
+    <p><b>telephone fournisseur: </b>{{ fournisseur.telephone }}</p>
+<hr>
+    {% endfor %}
+{% endblock %}

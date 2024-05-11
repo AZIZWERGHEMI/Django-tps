@@ -1,0 +1,19 @@
+{% extends 'blog/basee.html' %}
+
+{% block title %}
+    <title>Modifier un Poste</title>
+{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        background-color: orange; /* Couleur de fond gris clair */
+    }
+</style>
+    <h1>Modifier un Poste</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Enregistrer les modifications</button>
+    </form>
+{% endblock %}

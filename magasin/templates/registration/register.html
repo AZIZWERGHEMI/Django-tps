@@ -1,0 +1,62 @@
+{% extends "magasin/base.html" %}
+{% block content %}
+<style>
+  /* Add your CSS styles here */
+  form {
+    margin-top: 20px;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  button[type="submit"] {
+    background-color: hsl(122, 70%, 30%); /* Equivalent to RGB(76, 175, 80) */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: hsl(122, 60%, 30%); /* Equivalent to RGB(69, 160, 73) */
+  }
+  
+  .alert {
+    padding: 15px;
+    background-color: hsl(0, 100%, 27%); /* Equivalent to RGB(244, 67, 54) */
+    color: white;
+    margin-bottom: 15px;
+  }
+</style>
+
+
+  <h2>S'inscrire</h2>
+  <form method="post">
+    {% csrf_token %}
+    <table>
+      {% for field in form %}
+      <tr>
+        <td>{{ field.label_tag }}</td>
+        <td>{{ field }}</td>
+      </tr>
+      {% for error in field.errors %}
+      <tr><td></td><td class="alert alert-danger">{{ error }}</td></tr>
+      {% endfor %}
+      {% endfor %}
+    </table>
+    <button type="submit">S'inscrire</button>
+  </form>
+  <div>
+    <small>
+      Déjà inscrit.e?
+      <a href="{% url 'login' %}">Se connecter</a>
+    </small>
+  </div>
+{% endblock %}

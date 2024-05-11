@@ -1,0 +1,43 @@
+{% extends 'blog/basee.html' %}
+
+{% block title %}
+    Liste des Postes
+{% endblock %}
+
+{% block content %}
+<style>
+  body {
+      background-color: orange; width: 100%;
+      margin: 0; /* Réinitialise la marge */
+      padding: 0; /* Réinitialise le rembourrage */
+      font-family: "poppins";
+    }
+    
+</style>
+    <div class="container">
+        <a href="{% url 'creer_post' %}" class="btn btn-primary mb-3">Poster</a>
+
+        <div class="row">
+            {% for post in object_list %}
+                <div class="col-md-6 mb-3">
+                    <div class="list-group-item">
+                        <h5 class="mb-0">
+                            <a href="{% url 'detail_poste' post.pk %}">
+                                {{ post.title }}
+                            </a>
+                        </h5>
+                        {% if post.image %}
+                            <img src="{{ post.image.url }}" alt="{{ post.title }}" class="img-thumbnail mt-2" style="max-width: 100px;">
+                        {% endif %}
+                        {% if user.is_authenticated %}
+                            <div class="mt-3">
+                                <a href="{% url 'modifier_poste' post.pk %}" class="btn btn-info btn-sm">Modifier</a>
+                                <a href="{% url 'supprimer_poste' post.pk %}" class="btn btn-danger btn-sm">Supprimer</a>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

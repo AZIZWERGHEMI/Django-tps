@@ -1,0 +1,22 @@
+{% extends 'blog/basee.html' %}
+
+{% block title %}
+    <title>Créer un Poste</title>
+{% endblock %}
+
+{% block content %}
+    <style>
+        body {
+            background-color: orange; /* Couleur de fond gris clair */
+        }
+    </style>
+
+    <div class="container">
+        <h1>Créer un Poste</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Enregistrer</button>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'blog/basee.html' %}
+
+{% block title %}
+    <title>Supprimer un Poste</title>
+{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        background-color: orange; /* Couleur de fond gris clair */
+    }
+</style>
+    <h1>Supprimer un Poste</h1>
+    <p>Êtes-vous sûr de vouloir supprimer le poste "{{ object.title }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirmer la suppression</button>
+    </form>
+{% endblock %}
