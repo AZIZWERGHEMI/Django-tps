@@ -85,11 +85,11 @@ ul a:hover {
   color: #fff;
 }
 
+
 .container {
   overflow: scroll;
   border: #000000 1px solid;
   border-radius: 20px;
-  width:90%;
   margin: 20px auto;
   overflow-y: hidden;
 }
@@ -121,7 +121,7 @@ td {
 
 .post-form,
 .pdt {
-  width: 50%;
+  width: 100%;
   margin: auto;
 }
 
